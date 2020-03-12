@@ -13,5 +13,27 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/', function(req, res, next) {
+  res.render('template', {
+    locals: {
+      title: 'Recipe', 
+      },
+    partials: {
+      partial: 'partial-singlerec'
+      }
+  });
+});
+
+router.get('/', function(req, res, next) {
+  res.render('template', {
+    locals: {
+      title: 'Recipe Category', 
+      },
+    partials: {
+      partial: 'partial-recbycat'
+      }
+  });
+});
+
 
 module.exports = router;
