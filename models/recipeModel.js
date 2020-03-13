@@ -1,7 +1,7 @@
 const db = require('./conn');
 
 
-class recipeModel {
+class RecipeModel {
     constructor(id, name, category, ingredientId, ingredientAmount, ingredientMeasure, ingredientInstructions){
         this.id = id;
         this.name = name;
@@ -23,7 +23,7 @@ static async getAllRecipes() {
     }
 static async getRecipeById(id) {
     try {
-        const response = await db.any(`SELECT * FROM recipe WHERE ID = ${id};`);
+        const response = await db.any(`SELECT * FROM recipe WHERE id = ${id}`);
         console.log(response);
         return response;
     } catch(error) {
