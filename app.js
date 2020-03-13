@@ -9,6 +9,7 @@ const usersRouter = require('./routes/users');
 const recipeRouter = require('./routes/recipe');
 
 const app = express();
+
 app.engine('html', es6Renderer);
 app.set('views', 'views');
 app.set('view engine', 'html');
@@ -22,4 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/recipe', recipeRouter);
+<<<<<<< HEAD
+=======
+app.use(express.static('public'));
+
+>>>>>>> 150111a3dfacc5611e98e399fb4b4c8c8de747ae
 module.exports = app;
