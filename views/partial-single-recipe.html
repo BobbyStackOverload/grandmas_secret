@@ -1,4 +1,42 @@
+<link rel="stylesheet" href="../stylesheets/style.css">
+<nav>
+
+<div class="projects">
+    <button>Recipe</button>
+    <ul>
+        <li><a href="#">Meat</a><input type="checkbox"/></li>
+        <li><a href="#">Sauce</a><input type="checkbox"/></li>
+        <li><a href="#">Spice</a><input type="checkbox"/></li>
+        <li><a href="#">Other</a><input type="checkbox"/></li>
+    </ul>
+</div>
+<div class="products">
+    <button>Ingredients</button>
+    <ul>
+      <li><a href="#">Blank</a><input type="checkbox"/></li>
+      <li><a href="#">Blank</a><input type="checkbox"/></li>
+      <li><a href="#">Blank</a><input type="checkbox"/></li>
+    </ul>
+  </div>
+  </nav>
 
 <p><img src='../${recipe[0].picture}'/></p>
-
+<hr>
+${num.map(count => `
+    <p>${ingredients[num[count]]} -- ${ingredientAmount[num[count]]} -- ${ingredientMeasurement[num[count]]} </p> `).join('')}
+<hr>
 <p>${recipe[0].instructions}</p>
+<hr>
+<h4>Comments</h4>
+
+${completedComment.map(comment => ` 
+    <div id="commentContainer">
+        <p>${comment[0].comment}</p>
+        <p>${comment[0].userid}</p>
+        <div id="subcommentContainer">
+            ${comment[1].map(sub => `
+                <h5>${sub.subcomment}</h5>
+                <h5>${sub.userid}</h5>`).join('')}
+            </div>`).join('')}
+
+    </div>

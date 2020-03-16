@@ -1,49 +1,36 @@
-<html>
-​
-<head>
-    <meta charset="utf-8">
-    <title>Express Demo | ${title}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="./stylesheets/style.css"> -->
-</head>
-​
-<body>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>${title}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
 </head>
 <body>
+    <h1>${title}</h1>
+
     <nav>
-        <div class="dropdown">
-          <button><a href="#" class="home">Home</a></button>
-          <div class="projects">
-            <button>Recipe</button>
-            <ul>
-              <li><a href="#">Meat</a><input type="checkbox"/></li>
-              <li><a href="#">Sauce</a><input type="checkbox"/></li>
-              <li><a href="#">Spice</a><input type="checkbox"/></li>
-              <li><a href="#">Other</a><input type="checkbox"/></li>
-            </ul>
-          </div>
-          <div class="products">
-            <button>Ingredients</button>
-            <ul>
-              <li><a href="#">Blank</a><input type="checkbox"/></li>
-              <li><a href="#">Blank</a><input type="checkbox"/></li>
-              <li><a href="#">Blank</a><input type="checkbox"/></li>
-            </ul>
-          </div>
+        <div class="login-btn" id="loginButton">
+            <a href="#" class="button" data-toggle="modal" data-target="#login-modal">Login</a>
         </div>
-      </nav>
-      <p>${partial}</p>
-    
+        <div class="modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" display="none">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Login to Your Account</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="Username">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                    </form>
+                    <div class="login-help">
+                        <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <p>${partial}</p>
 </body>
-</html>
-</body>
-​
+<script src = "/javascripts/script.js"></script>
 </html>

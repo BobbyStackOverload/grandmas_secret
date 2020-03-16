@@ -1,9 +1,78 @@
-<<<<<<< HEAD
-<p>Chicowski is a bitch</p>
-=======
-<ul>
-    ${recipes.map(recipe => ` 
-        <h3><a href="./recipe/${recipe.id}">${recipe.name}</a></h3>
-        <img src='${recipe.picture}' width='150' height='70'/>`).join('')}
-</ul>
->>>>>>> 150111a3dfacc5611e98e399fb4b4c8c8de747ae
+<h3>${recipe.name}</h3>
+            <img src='${recipe.picture}' width='150' height='70'/>`).join('')}
+        </a></div>
+
+<button id="addRecipeButton">Add Recipe</button>
+
+<div id="addRecipeModal" class="modal">
+    <div class="modal-content">
+        <span class="closeModalButton">&times;</span>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <p>
+                <label>Name
+                    <input type="text" name="name"/>
+                </label>
+            </p>
+            <p>
+                <label>Category</label> 
+                    <select id="category" name="category" >
+                        <option value="">Choose Your Category</option>
+                    ${categories.map(category => `
+                        <div> 
+                            <option value=${category.category}> ${category.category}</option>
+                        </div>
+                        `).join('')}
+                    </select>
+            </p>
+            <p>
+                <label>Ingredients</label>
+                <p>
+                    <button type="button" id="addIngredientButton" >+</button>
+                </p>
+
+                <div id="ingredientNameSelect">
+                    <select id="ingredientName" name="ingredientName">
+                        ${ingredients.map(ingredient => ` 
+                        <option value=${ingredient.id} name="${ingredient.id}">${ingredient.name}</option>
+                `).join('')}
+                    <input type="number" step="0.25" name="ingredientAmount">
+
+                    <select id="ingredientMeasurement" name="ingredientMeasurement">
+
+                        <option value ="tsp" name="tsp">tsp</option>
+                        <option value="tbsp" name="tbsp">tbsp</option>
+                        <option value="cup" name="cup">cup</option>
+                        <option value="quart" name="quart">quart</option>
+                        <option value="gallon" name="gallon">gallon</option>
+                        <option value="pint" name="pint">pint</option>
+                        <option value="oz" name="oz">oz</option>
+                        <option value="lb" name="lb">lb</option>
+
+                    </select>
+                </div>
+                <div id="ingredientAmount">
+
+                </div>
+
+                <div id="ingredientMeasurement">
+
+                </div>        
+            </p>
+            <p>
+                <label>Instructions
+                    <p>
+                        <textarea id="instructionTextArea" name="instructions"></textarea>
+                    </p>
+                </label>
+            </p>
+            <p>
+                <input type="file" accept="image/*" name="photo" >
+            </p>
+            <p>
+                <button type="submit">Add Recipe</button>
+            </p>
+
+        </form>
+
+    </div>
+</div> 
